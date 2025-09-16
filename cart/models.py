@@ -2,6 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 from movies.models import Movie
 
+class Feedback(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100, blank=True, null=True)
+    feedback_text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        display_name = self.name if self.name else "Anonymous"
+        return f"{display_name} - {self.date.strftime('%Y-%m-%d')}"
+
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
     total = models.IntegerField()

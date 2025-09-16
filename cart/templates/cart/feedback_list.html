@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-3">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col mx-auto mb-3">
+        <h2>Customer Feedback</h2>
+        <hr />
+        <p>Here's what our customers are saying about their checkout experience:</p>
+        
+        {% if template_data.feedbacks %}
+          {% for feedback in template_data.feedbacks %}
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      {% if feedback.name %}
+                        {{ feedback.name }}
+                      {% else %}
+                        Anonymous
+                      {% endif %}
+                    </h6>
+                    <p class="card-text">{{ feedback.feedback_text }}</p>
+                  </div>
+                  <small class="text-muted">{{ feedback.date|date:"M d, Y H:i" }}</small>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="alert alert-info" role="alert">
+            No feedback has been submitted yet. Be the first to share your thoughts!
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
