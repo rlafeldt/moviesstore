@@ -79,7 +79,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-The application will be available at `http://127.0.0.1:8000/`
+The application will be available at `http://127.0.0.1:8000/
 
 ## Usage
 
@@ -91,3 +91,8 @@ The application will be available at `http://127.0.0.1:8000/`
 ## Development
 
 This appears to be a course project (located in a "2340" directory, suggesting a class number). The application uses Django's default SQLite database and includes basic e-commerce functionality with user authentication and order management.
+
+
+Superuser: 
+admin1
+Mypass
